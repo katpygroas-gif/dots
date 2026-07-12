@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Full Pipe — Restoration Companies</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1674094640556994');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1674094640556994&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --black:#0A0A0A;
+  --black-2:#141414;
+  --black-3:#1E1E1E;
+  --white:#FFFFFF;
+  --grey:#8A8A8A;
+  --grey-dim:#4A4A4A;
+  --line:#2A2A2A;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:20px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:'Anton',sans-serif;
+  font-size:22px;
+  letter-spacing:1px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.logo .dots{color:var(--white);}
+.logo .dots span{
+  display:inline-block;
+  width:5px;height:5px;
+  background:var(--white);
+  border-radius:50%;
+  margin-right:2px;
+}
+.nav-cta{
+  border:1px solid var(--white);
+  color:var(--white);
+  background:transparent;
+  padding:10px 22px;
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.nav-cta:hover{background:var(--white);color:var(--black);}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:100px 0 90px;
+  position:relative;
+}
+.eyebrow{
+  display:inline-block;
+  font-family:'Inter',sans-serif;
+  font-weight:800;
+  font-style:italic;
+  font-size:16px;
+  letter-spacing:0.3px;
+  color:var(--white);
+  border:1px solid var(--white);
+  padding:12px 26px;
+  margin-bottom:36px;
+}
+h1.hook{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  font-size:clamp(34px,5.4vw,68px);
+  line-height:1.04;
+  letter-spacing:-0.5px;
+  max-width:920px;
+  text-transform:uppercase;
+}
+h1.hook .fear{
+  color:var(--grey);
+  font-family:'Inter',sans-serif;
+  font-weight:800;
+  font-size:0.42em;
+  text-transform:none;
+  letter-spacing:0;
+  display:block;
+  margin-top:18px;
+  line-height:1.35;
+  font-style:italic;
+}
+.sub{
+  margin-top:34px;
+  font-size:clamp(17px,1.9vw,21px);
+  color:#D6D6D6;
+  max-width:640px;
+  line-height:1.55;
+  font-weight:400;
+}
+.sub b{color:var(--white);font-weight:700;}
+.hero-ctas{
+  margin-top:44px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  background:var(--white);
+  color:var(--black);
+  border:1px solid var(--white);
+  padding:17px 34px;
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.btn-primary:hover{background:transparent;color:var(--white);}
+.btn-secondary{
+  background:transparent;
+  color:var(--white);
+  border:1px solid var(--line);
+  padding:17px 34px;
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.btn-secondary:hover{border-color:var(--white);}
+
+.start-block{
+  margin-top:48px;
+  max-width:420px;
+}
+.start-prompt{
+  font-weight:800;
+  font-size:19px;
+  color:var(--white);
+  line-height:1.35;
+  margin-bottom:16px;
+}
+.start-prompt .finger{
+  display:inline-block;
+  animation:point 1.1s ease-in-out infinite;
+}
+@keyframes point{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(5px);}
+}
+.start-time{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--grey);
+  margin-bottom:18px;
+}
+.start-time .clock{font-size:14px;}
+.btn-start{
+  display:block;
+  width:100%;
+  background:var(--white);
+  color:var(--black);
+  border:none;
+  padding:20px 28px;
+  font-weight:800;
+  font-size:16px;
+  letter-spacing:0.3px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.btn-start:hover{background:#D6D6D6;}
+
+/* ---------- TICKER (signature element) ---------- */
+.ticker-shell{
+  margin-top:70px;
+  border:1px solid var(--line);
+  background:var(--black-2);
+}
+.ticker-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 22px;
+  border-bottom:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:1.5px;
+  color:var(--grey);
+  text-transform:uppercase;
+}
+.ticker-head .live{
+  display:flex;align-items:center;gap:8px;color:var(--white);
+}
+.dot-live{
+  width:7px;height:7px;background:#fff;border-radius:50%;
+  animation:pulse 1.6s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;} 50%{opacity:0.25;}
+}
+.ticker-body{
+  height:190px;
+  overflow:hidden;
+  position:relative;
+  font-family:'JetBrains Mono',monospace;
+  font-size:13.5px;
+  padding:18px 22px;
+}
+.ticker-line{
+  display:flex;
+  gap:14px;
+  padding:6px 0;
+  color:var(--grey);
+  opacity:0;
+  animation:fadeIn .4s forwards;
+}
+.ticker-line .t{color:var(--grey-dim);min-width:64px;}
+.ticker-line .msg{color:#D6D6D6;}
+.ticker-line .msg b{color:var(--white);}
+@keyframes fadeIn{to{opacity:1;}}
+
+/* ---------- SECTION SHARED ---------- */
+section{padding:110px 0;border-bottom:1px solid var(--line);}
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--grey);
+  margin-bottom:20px;
+}
+h2{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  font-size:clamp(28px,3.6vw,46px);
+  line-height:1.08;
+  letter-spacing:-0.5px;
+  max-width:760px;
+}
+.section-intro{
+  color:var(--grey);
+  font-size:17px;
+  max-width:600px;
+  margin-top:20px;
+  line-height:1.6;
+}
+
+/* ---------- PAIN ---------- */
+.pain-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.pain-card{
+  background:var(--black);
+  padding:36px 32px;
+}
+.pain-card .num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--grey-dim);
+  margin-bottom:18px;
+}
+.pain-card p{
+  font-size:16.5px;
+  line-height:1.55;
+  color:#D6D6D6;
+}
+.pain-card p b{color:var(--white);}
+
+/* ---------- MECHANISMS ---------- */
+.mech-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.mech-card{
+  background:var(--black);
+  padding:34px 30px;
+  transition:background .2s ease;
+}
+.mech-card:hover{background:var(--black-2);}
+.mech-tag{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--black);
+  background:var(--white);
+  padding:3px 8px;
+  margin-bottom:16px;
+}
+.mech-tag.core{background:transparent;color:var(--grey);border:1px solid var(--line);}
+.mech-card h3{
+  font-family:'Inter',sans-serif;
+  font-weight:800;
+  font-size:18px;
+  margin-bottom:10px;
+  letter-spacing:-0.2px;
+}
+.mech-card p{
+  font-size:14.5px;
+  color:var(--grey);
+  line-height:1.55;
+}
+
+/* ---------- PROCESS ---------- */
+.process{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+}
+.proc-step .step-line{
+  height:1px;
+  background:var(--line);
+  margin-bottom:24px;
+  position:relative;
+}
+.proc-step .step-line::before{
+  content:'';
+  position:absolute;
+  left:0;top:-1px;
+  width:28px;height:3px;
+  background:var(--white);
+}
+.proc-step .step-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--grey-dim);
+  margin-bottom:12px;
+}
+.proc-step h4{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.proc-step p{
+  font-size:14.5px;
+  color:var(--grey);
+  line-height:1.55;
+}
+
+/* ---------- GUARANTEE ---------- */
+.guarantee{
+  text-align:center;
+  padding:120px 0;
+}
+.guarantee-inner{
+  max-width:720px;
+  margin:0 auto;
+}
+.guarantee .section-label{justify-content:center;display:flex;}
+.guarantee h2{
+  margin:0 auto;
+  text-align:center;
+}
+.guarantee-badge{
+  width:96px;height:96px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 34px;
+  font-family:'Anton',sans-serif;
+  font-size:13px;
+  letter-spacing:1px;
+}
+.guarantee p.desc{
+  color:var(--grey);
+  font-size:16.5px;
+  line-height:1.6;
+  margin-top:22px;
+  max-width:560px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ---------- SOCIAL PROOF ---------- */
+.proof-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.proof-card{
+  background:var(--black-2);
+  padding:34px 30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:220px;
+}
+.proof-card .stars{
+  color:var(--white);
+  font-size:14px;
+  letter-spacing:2px;
+  margin-bottom:18px;
+}
+.proof-card blockquote{
+  font-size:15.5px;
+  line-height:1.6;
+  color:#D6D6D6;
+  font-style:italic;
+}
+.proof-card .who{
+  margin-top:22px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--grey);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
+/* ---------- FINAL CTA ---------- */
+.final{
+  padding:120px 0 130px;
+  border-bottom:none;
+}
+.final-inner{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:70px;
+  align-items:start;
+}
+.final h2{max-width:520px;}
+.final .section-intro{max-width:500px;}
+.final-points{margin-top:36px;display:flex;flex-direction:column;gap:14px;}
+.final-points div{
+  display:flex;align-items:center;gap:12px;
+  font-size:15px;color:#D6D6D6;
+}
+.final-points div::before{
+  content:'';
+  width:6px;height:6px;
+  background:var(--white);
+  flex-shrink:0;
+}
+.form-card{
+  border:1px solid var(--line);
+  background:var(--black-2);
+  padding:40px 36px;
+}
+.form-card h3{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  font-size:22px;
+  margin-bottom:8px;
+}
+.form-card .form-sub{
+  color:var(--grey);
+  font-size:14px;
+  margin-bottom:28px;
+}
+.field{margin-bottom:18px;}
+.field label{
+  display:block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--grey);
+  margin-bottom:8px;
+}
+.field input{
+  width:100%;
+  background:var(--black);
+  border:1px solid var(--line);
+  color:var(--white);
+  padding:14px 16px;
+  font-family:'Inter',sans-serif;
+  font-size:14.5px;
+  outline:none;
+  transition:border-color .2s ease;
+}
+.field input:focus{border-color:var(--white);}
+.form-card .btn-primary{width:100%;margin-top:10px;text-align:center;}
+
+footer{
+  padding:36px 0;
+  text-align:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--grey-dim);
+  letter-spacing:0.5px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:860px){
+  .pain-grid,.mech-grid,.proof-grid{grid-template-columns:1fr;}
+  .process{grid-template-columns:1fr 1fr;row-gap:40px;}
+  .final-inner{grid-template-columns:1fr;}
+  section{padding:70px 0;}
+  .hero{padding:70px 0 60px;}
+  .guarantee{padding:80px 0;}
+}
+@media(max-width:520px){
+  .process{grid-template-columns:1fr;}
+  .wrap{padding:0 20px;}
+  .nav-inner{padding:16px 20px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+
+/* focus visibility */
+button:focus-visible, input:focus-visible{
+  outline:2px solid var(--white);
+  outline-offset:2px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="dots"><span></span><span></span><span></span></span>3DOT ai</div>
+    <button class="nav-cta" onclick="window.location.href='application-funnel.html'">Start</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Restoration Company Owners</div>
+    <h1 class="hook">
+      If you got hit by a truck tomorrow,
+      <span class="fear">how long until the business falls apart?</span>
+    </h1>
+    <p class="sub">See how we can make your company run <b>without you</b>, working until you're collecting social security instead of insurance checks.</p>
+    <div class="start-block">
+      <p class="start-prompt">Click The "START" Button To Apply <span class="finger">👇</span></p>
+      <div class="start-time"><span class="clock">⏱</span>Takes 45 sec</div>
+      <button class="btn-start" onclick="window.location.href='application-funnel.html'">Start</button>
+    </div>
+
+    <div class="ticker-shell">
+      <div class="ticker-head">
+        <span>The Full Pipe — Live System Log</span>
+        <span class="live"><span class="dot-live"></span>Running while you're off the clock</span>
+      </div>
+      <div class="ticker-body" id="tickerBody"></div>
+    </div>
+  </div>
+</header>
+
+<footer>
+  3DOT ai — The Full Pipe for Restoration Companies
+</footer>
+
+<script>
+const logs = [
+  ["02:14 AM", "Emergency call answered", "and booked automatically"],
+  ["02:16 AM", "Cold caller filtered", "by Gatekeeper Protocol"],
+  ["06:40 AM", "Claim status update sent", "to homeowner"],
+  ["09:02 AM", "Job marked done", "reconstruction dept alerted"],
+  ["11:18 AM", "Review request sent", "to yesterday's completed job"],
+  ["01:47 PM", "Stalled claim flagged", "auto follow up sent to adjuster"],
+  ["03:29 PM", "Referral partner reminded", "to send water damage jobs"],
+  ["05:53 PM", "Overdue invoice followed up", "automatically"],
+  ["08:12 PM", "Website lead booked", "by Silent Salesman"],
+  ["11:40 PM", "Dormant customer reactivated", "for repeat service"]
+];
+
+const body = document.getElementById('tickerBody');
+let i = 0;
+
+function pushLine(){
+  const [t, main, sub] = logs[i % logs.length];
+  const line = document.createElement('div');
+  line.className = 'ticker-line';
+  line.innerHTML = `<span class="t">${t}</span><span class="msg"><b>${main}</b> ${sub}</span>`;
+  body.appendChild(line);
+  if(body.children.length > 6){
+    body.removeChild(body.children[0]);
+  }
+  body.scrollTop = body.scrollHeight;
+  i++;
+}
+
+for(let k=0;k<5;k++) pushLine();
+setInterval(pushLine, 2200);
+</script>
+
+</body>
+</html>
