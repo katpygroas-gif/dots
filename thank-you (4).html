@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Booked — 3DOT ai</title>
+<style>
+  :root {
+    --bg: #0B3D2E;
+    --bg-raised: #0F4A38;
+    --white: #F5F3EF;
+    --gold: #C8A96A;
+    --gold-dim: rgba(200,169,106,0.12);
+    --navy: #0A2342;
+    --emerald: #0B3D2E;
+    --burgundy: #4A0E1A;
+    --espresso: #3B2A1A;
+    --silver: #C7CCD1;
+    --silver-dim: #6f7378;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    padding: 48px 20px 80px;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .wrap {
+    max-width: 660px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .confirm-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    background: var(--gold-dim);
+    border: 1px solid rgba(200,169,106,0.35);
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 10px 16px;
+    border-radius: 100px;
+    width: fit-content;
+    margin: 0 auto 32px;
+  }
+  .confirm-strip svg { flex-shrink: 0; }
+
+  .dot-mark {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .dot-mark span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--silver);
+  }
+  .dot-mark span:nth-child(2) { background: var(--gold); }
+
+  .center { text-align: center; }
+
+  .eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  h1 .accent { color: var(--gold); }
+
+  .sub {
+    color: var(--silver);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 36px;
+    text-align: center;
+  }
+
+  .founder-note {
+    background: var(--bg-raised);
+    border: 1px solid rgba(200,169,106,0.3);
+    border-radius: 10px;
+    padding: 24px 22px;
+    margin-bottom: 32px;
+  }
+  .founder-note p {
+    font-size: 15px;
+    color: var(--silver);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .founder-note p:last-child { margin-bottom: 0; }
+  .founder-note strong { color: var(--white); }
+  .founder-note .highlight { color: var(--gold); font-weight: 700; }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--navy);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(10,35,66,0.6);
+    margin-bottom: 12px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(10,35,66,0.5), inset 0 0 50px rgba(10,35,66,0.2);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .video-frame::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--emerald));
+    z-index: 3;
+  }
+  .video-frame iframe,
+  .video-frame video {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-placeholder {
+    color: var(--silver-dim);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+  }
+  .video-placeholder span { display: block; margin-top: 6px; color: var(--silver); text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 13px; }
+
+  .video-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--silver);
+    margin-bottom: 40px;
+  }
+  .video-caption .gold-dot { color: var(--gold); }
+
+  .reminder-strip {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--bg-raised);
+    border: 1px solid rgba(200,169,106,0.3);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+  }
+  .reminder-strip .dot-icon {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 6px;
+  }
+  .reminder-strip-text { font-size: 14px; color: var(--silver); line-height: 1.6; }
+  .reminder-strip-text strong { color: var(--white); }
+
+  .prep-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--espresso);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 28px;
+  }
+  .prep-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .prep-question {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .prep-sub { font-size: 14px; color: var(--silver); line-height: 1.6; }
+
+  .proof-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--silver);
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(200,169,106,0.2);
+  }
+  .proof-strip .gold-dot { color: var(--gold); }
+
+  .reassurance {
+    display: flex;
+    gap: 14px;
+    background: var(--bg-raised);
+    border: 1px solid var(--burgundy);
+    border-left: 3px solid var(--burgundy);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 28px;
+  }
+  .reassurance-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(74,14,26,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reassurance-text { font-size: 14px; color: var(--silver); line-height: 1.6; }
+  .reassurance-text strong { color: var(--white); }
+
+  .faq { margin-bottom: 8px; padding-top: 24px; border-top: 1px solid var(--espresso); }
+  .faq p.label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .faq-item {
+    border-top: 1px solid var(--silver-dim);
+    padding: 16px 4px;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--silver-dim); }
+  .faq-q { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--white); }
+  .faq-q::before { content: "— "; color: var(--gold); }
+  .faq-a { font-size: 14px; color: var(--silver); line-height: 1.6; }
+
+  .footer-note {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--silver-dim);
+    line-height: 1.6;
+  }
+  .footer-note a { color: var(--silver); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="confirm-strip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#C8A96A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Application confirmed
+    </div>
+
+    <div class="dot-mark"><span></span><span></span><span></span></div>
+
+    <p class="eyebrow center">You're booked</p>
+    <h1>Your call is locked in. <span class="accent">Here's what to do next.</span></h1>
+    <p class="sub">Watch this video for the next steps.</p>
+
+    <div class="video-frame">
+      <div class="video-placeholder">
+        <video src="https://videotourl.com/videos/1784177601488-39aeb2cd-5617-48bd-91e1-d679ad4ec7bc.mp4" controls preload="metadata"></video>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="founder-note">
+      <p><strong>You're in.</strong> Most owners who apply never make it to this call.</p>
+      <p>Right now you're probably losing jobs the second that phone rings after hours and nobody picks up. That stops being your problem soon.</p>
+      <p>This isn't a pitch. It's a look at exactly how we plug the holes, the missed calls, the dead leads, the insurance back and forth eating your week.</p>
+      <p>We only take a handful of restoration owners on at a time, so if you're reading this, <span class="highlight">you got in.</span></p>
+      <p>Show up ready to see it, not ready to be sold. Welcome to The Full Pipe.</p>
+    </div>
+
+    <div class="reminder-strip">
+      <div class="dot-icon"></div>
+      <div class="reminder-strip-text"><strong>Expect a text or call reminder</strong> before your appointment. Go ahead and block the time now, treat it like a real appointment, not something you'll get to if you remember.</div>
+    </div>
+
+    <div class="prep-card">
+      <p class="prep-label">What are some holes in your business</p>
+      <p class="prep-question">Where do you think you're losing jobs right now, missed calls, slow follow up, leads going cold?</p>
+      <p class="prep-sub">Take a minute to actually think about it, or jot a few down. It'll help us get straight to what matters instead of spending the first ten minutes figuring out where the gaps are.</p>
+    </div>
+
+    <div class="reassurance">
+      <div class="reassurance-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z" stroke="#8C2C3D" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="reassurance-text"><strong>You made the right call.</strong> Every missed after hours call is a job going to a competitor who picked up first. This call is where we figure out how many you're actually missing, and what fixing it looks like for your business specifically.</div>
+        <div class="proof-strip"><span class="gold-dot">●</span> Restoration companies we work with recover jobs they were previously losing to slow follow up.</div>
+      </div>
+    </div>
+
+    <div class="faq">
+      <p class="label">Before you go</p>
+      <div class="faq-item">
+        <div class="faq-q">Is this a sales call?</div>
+        <div class="faq-a">No pitch until we've actually looked at what's happening in your business. If it's not a fit, we'll tell you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does it take?</div>
+        <div class="faq-a">Usually 20 to 30 minutes. Enough time to see what's actually going on, not a rushed script.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What do I need to prepare?</div>
+        <div class="faq-a">Nothing. Just show up and be ready to talk about how calls and leads are handled right now.</div>
+      </div>
+    </div>
+
+    <p class="footer-note">Need to reschedule? Reply to your confirmation email and we'll sort it out.</p>
+  </div>
+</body>
+</html>
