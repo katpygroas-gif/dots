@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Call — 3DOT ai</title>
+<style>
+  :root {
+    --bg: #0B3D2E;
+    --white: #F5F3EF;
+    --gold: #C8A96A;
+    --silver: #C7CCD1;
+    --silver-dim: #6f7378;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 16px 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+  .eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  h1 {
+    color: var(--white);
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .redirect-note {
+    color: var(--silver-dim);
+    font-size: 12px;
+    text-align: center;
+    margin: 8px 0 4px;
+    flex-shrink: 0;
+  }
+  #calendly-embed {
+    flex: 1 1 auto;
+    min-height: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--silver);
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <p class="eyebrow">Full Pipe Strategy Call</p>
+      <h1>Pick a time that works for you.</h1>
+    </div>
+    <p class="redirect-note">You'll be taken to your next steps automatically once you book.</p>
+    <div id="calendly-embed">
+      <div class="loading-state">Loading available times...</div>
+    </div>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/3dot/full-pipe-strategy-call',
+        parentElement: document.getElementById('calendly-embed'),
+        prefill: {},
+        utm: {}
+      });
+    });
+
+    window.addEventListener('message', function(e) {
+      if (e.origin !== 'https://calendly.com') return;
+      if (e.data && e.data.event === 'calendly.event_scheduled') {
+        window.location.href = 'thank-you.html';
+      }
+    });
+  </script>
+</body>
+</html>
