@@ -1727,7 +1727,20 @@ contactForm.addEventListener('submit', async e => {
     if(!res.ok || !result.success){
       throw new Error('Submission failed');
     }
-
+    // Also send the lead to Close (never blocks the form if it fails)
+    fetch('https://landingleads.kenersonkenie.workers.dev', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        country: payload.country,
+        role: payload.role,
+        revenue: payload.revenue,
+        commitment: payload.commitment
+      })
+    }).catch(() => {});
     if (typeof fbq === 'function') {
       const eventId = crypto.randomUUID();
       fbq('track', 'Lead', {
